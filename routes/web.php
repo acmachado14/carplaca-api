@@ -19,9 +19,23 @@ $router->get('/', function () use ($router) {
 
 
 $router->group(['prefix' => 'api'], function () use ($router) {
-    $router->get('carros', 'CarroController@index');
-    $router->post('carro', 'CarroController@store');
-    $router->get('carro/{id}', 'CarroController@show');
-    $router->put('carro/{id}', 'CarroController@update');
-    $router->delete('carro/{id}', 'CarroController@destroy');
+
+    $router->group(['prefix' => 'carro'], function () use ($router) {
+        $router->get('', 'CarroController@index');
+        $router->post('', 'CarroController@store');
+        $router->get('{id}', 'CarroController@show');
+        $router->put('{id}', 'CarroController@update');
+        $router->delete('{id}', 'CarroController@destroy');
+    });
+
+    $router->group(['prefix' => 'debito'], function () use ($router) {
+        $router->get('', 'DebitoController@index');
+        $router->post('', 'DebitoController@store');
+        $router->get('{id}', 'DebitoController@show');
+        $router->put('{id}', 'DebitoController@update');
+        $router->delete('{id}', 'DebitoController@destroy');
+    });
+
 });
+
+
