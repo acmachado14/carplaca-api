@@ -1,9 +1,11 @@
 <?php
-namespace App;
+namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Debito extends Model {
+class Debito extends Model
+{
 
 		public $timestamps = false;
 		protected $primaryKey = 'cdDebito';
