@@ -26,6 +26,8 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->get('{id}', 'CarroController@show');
         $router->put('{id}', 'CarroController@update');
         $router->delete('{id}', 'CarroController@destroy');
+
+        $router->get('{cdCarro}/debitos', 'DebitoController@DebitosPorCarro');
     });
 
     $router->group(['prefix' => 'debito'], function () use ($router) {

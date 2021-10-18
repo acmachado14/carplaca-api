@@ -10,4 +10,13 @@ class DebitoController extends Controller
     {
         $this->classe = Debito::class;
     }
+
+    public function DebitosPorCarro(int $cdCarro)
+    {
+    $debitos = Debito::query()
+        ->where('cdCarro', $cdCarro)
+        ->get();
+
+    return $debitos;
+}
 }
