@@ -16,6 +16,15 @@ class Debito extends Model
 			'cdCarro'
 		];
 
+		protected $appends = ['links'];
+
+		public function getLinksAttribute($links): array
+		{
+			return [
+				'self' => '/api/debito/' . $this->cdDebito,
+				'carro' => '/api/carro/' . $this->cdCarro
+			];
+		}
 		public function carro()
 		{
 			return $this->belongsTo(Carro::class);

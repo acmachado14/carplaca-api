@@ -28,8 +28,19 @@ class Carro extends Model
         'remark' => '',
     ];
 
+    protected $appends = ['links'];
+
+    public function getLinksAttribute($links): array
+    {
+        return [
+            'self' => '/api/carro/' . $this->cdCarro,
+            'debitos' => '/api/carro/' . $this->cdCarro . '/debitos'
+        ];
+    }
+    
     public function debitos(){
         return $this->hasMany(Debito::class);
+
     }
 }
 
