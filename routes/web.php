@@ -18,7 +18,7 @@ $router->get('/', function () use ($router) {
 });
 
 
-$router->group(['prefix' => 'api'], function () use ($router) {
+$router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($router) {
 
     $router->group(['prefix' => 'carro'], function () use ($router) {
         $router->get('', 'CarroController@index');
@@ -40,4 +40,5 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
 });
 
+$router->post('/api/login', 'TokenController@gerarToken');
 
